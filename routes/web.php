@@ -1,7 +1,9 @@
 <?php
 
+use App\Models\Plant;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    $plants = Plant::all();
+    return view('home', compact('plants'));
 });
