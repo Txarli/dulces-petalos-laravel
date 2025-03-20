@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dulces Pétalos</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    @vite('resources/css/app.css')
+    <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}">
 </head>
 
 <body class="bg-gray-100">
