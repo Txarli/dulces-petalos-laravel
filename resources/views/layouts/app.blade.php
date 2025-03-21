@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dulces Pétalos</title>
-    @vite('resources/css/app.css')
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
@@ -20,14 +20,17 @@
                     Dulces Pétalos
                 </a>
             </h1>
-            <form action="{{ url('/buscar') }}" method="GET" class="flex">
-                <input type="text" name="q" placeholder="Buscar plantas..."
-                    class="px-4 py-2 rounded-l bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400">
-                <button type="submit"
-                    class="px-4 py-2 bg-white text-green-600 rounded-r hover:bg-gray-200 flex items-center">
-                    <i class="ph ph-magnifying-glass text-lg"></i>
-                </button>
-            </form>
+            <div class="flex items-center gap-6">
+                <a href="{{ route('admin.plants.index') }}" class="hover:underline">Administrar catálogo</a>
+                <form action="{{ url('/buscar') }}" method="GET" class="flex">
+                    <input type="text" name="q" placeholder="Buscar plantas..."
+                        class="px-4 py-2 rounded-l bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400">
+                    <button type="submit"
+                        class="px-4 py-2 bg-white text-green-600 rounded-r hover:bg-gray-200 flex items-center">
+                        <i class="ph ph-magnifying-glass text-lg"></i>
+                    </button>
+                </form>
+            </div>
         </div>
     </header>
 
