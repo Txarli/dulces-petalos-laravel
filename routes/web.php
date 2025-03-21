@@ -12,3 +12,12 @@ Route::get('/plant/{id}', function ($id) {
     $plant = Plant::find($id);
     return view('plant', compact('plant'));
 });
+
+Route::get('/buscar', function () {
+    $query = request('q');
+    $plants = Plant::where('name', 'like', "%{$query}%")
+        ->orWhere('binomial_name', 'like', "%{$query}%")
+        ->get();
+
+    return view('search', compact('plants', 'query'));
+});
