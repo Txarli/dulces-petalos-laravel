@@ -21,7 +21,16 @@
                 </a>
             </h1>
             <div class="flex items-center gap-6">
-                <a href="{{ route('admin.plants.index') }}" class="hover:underline">Administrar catálogo</a>
+                @auth
+                    <a href="{{ route('admin.plants.index') }}" class="hover:underline">Administrar catálogo</a>
+                    <form action="{{ route('logout') }}" method="POST" class="inline">
+                        @csrf
+                        <button type="submit" class="hover:underline ml-2">Cerrar sesión</button>
+                    </form>
+                @else
+                    <a href="{{ route('login') }}" class="hover:underline">Iniciar sesión</a>
+                @endauth
+
                 <form action="{{ url('/buscar') }}" method="GET" class="flex">
                     <input type="text" name="q" placeholder="Buscar plantas..."
                         class="px-4 py-2 rounded-l bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400">
